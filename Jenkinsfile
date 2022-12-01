@@ -13,11 +13,7 @@ pipeline {
     }
     stage('Push') {
       steps{
-        script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
-        }
+        sh 'docker push aierohin/nginx":$BUILD_NUMBER"'
       }
     }
     stage('Deploy') {
