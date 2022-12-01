@@ -20,7 +20,7 @@ pipeline {
 	//when { tag pattern: "v1.0.0", comparator: "REGEXP"}  
 	//when { tag 'v1.0.0' }
 	//when { buildingTag('v1.0.0')}
-	when { tag pattern: "release-\\d+", comparator: "REGEXP"}
+	//when { tag pattern: "release-\\d+", comparator: "REGEXP"}
         steps {
             echo 'Deploying only because this commit is tagged...'
 	    sh 'kubectl apply -f nginx_pod.yaml '
