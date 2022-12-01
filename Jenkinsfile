@@ -23,7 +23,7 @@ pipeline {
 	//when { tag pattern: "release-\\d+", comparator: "REGEXP"}
 	//when { branch 'master' }
 	when {
-  		tag 'v1'
+  		tag '1'
 	}
         steps {
             echo 'Deploying only because this commit is tagged...'
