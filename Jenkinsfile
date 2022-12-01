@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps{
-        sh 'docker build -t aierohin/nginx":$BUILD_NUMBER"'
+        sh 'docker build -t aierohin/nginx":$BUILD_NUMBER" .'
       }
     }
     stage('Push') {
