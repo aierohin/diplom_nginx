@@ -1,9 +1,4 @@
 pipeline {
-  environment {
-    registry = "aierohin/nginx"
-    registryCredential = 'Dockerhub'
-    dockerImage = ''
-  }
   agent any
   stages {
     stage('Build') {
@@ -17,12 +12,6 @@ pipeline {
       }
     }
     stage('Deploy') {
-	//when { tag pattern: "v1.0.0", comparator: "REGEXP"}  
-	//when { tag 'v1.0.0' }
-	//when { buildingTag('v1.0.0')}
-	//when { tag pattern: "release-\\d+", comparator: "REGEXP"}
-	//when { branch 'master' }
-	//when {tag 'v1.0.0'}
 	when {
                 expression {
                    env.TAG_NAME.toString().equals('v1.0.0')
