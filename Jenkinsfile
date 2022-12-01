@@ -8,9 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
+        sh 'docker build -t aierohin/nginx+":$BUILD_NUMBER"'
       }
     }
     stage('Push') {
@@ -26,7 +24,7 @@ pipeline {
         when { tag "release-*" }
         steps {
             echo 'Deploying only because this commit is tagged...'
-			sh 'make deploy'
+	    sh 'make deploy'
         }                    
     }
   }
