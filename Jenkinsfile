@@ -18,11 +18,11 @@ pipeline {
     }
     stage('Deploy') {
 	when {
-  		anyOf { tag "v1.0.0" }
-	}
+                tag 'v1.0.0'
+        }    
         steps {
             echo 'Deploying only because this commit is tagged...'
-	          sh 'kubectl apply -f nginx_pod.yaml '
+	    sh 'kubectl apply -f nginx_pod.yaml '
         }                    
     }
   }
