@@ -3,7 +3,12 @@ pipeline {
   stages {
     stage('Build') {
       steps{
-        sh ' echo env.TAG_NAME'
+        def TAG_NAME = binding.variables.get("TAG_NAME")
+            if (TAG_NAME != null) {
+                sh "echo $TAG_NAME"
+            } else {
+                sh "echo Non-tag build"
+            }
         sh 'docker build -t aierohin/nginx:latest .'
       }
     }
