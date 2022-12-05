@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps{
-        sh ' cat env.TAG_NAME'
+        sh ' echo env.TAG_NAME'
         sh 'docker build -t aierohin/nginx:latest .'
       }
     }
