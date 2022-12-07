@@ -35,7 +35,7 @@ pipeline {
     }
     stage('Deploy') {
 	    when {
-                anyOf {
+                allOf {
                     branch "main"
                     buildingTag()
                 }
