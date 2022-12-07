@@ -26,7 +26,7 @@ pipeline {
 //         }
 	    when {
                 expression {
-                   env.GIT_TAG_NAME.toString().equals('v1.0.0')
+                   GIT_TAG_NAME.toString().equals('v1.0.0')
                 }
         }
         steps {
