@@ -34,12 +34,15 @@ pipeline {
       }
     }
     stage('Deploy') {
-	    when {
-                allOf {
-                    branch "main"
-                    buildingTag()
-                }
-            }
+          when {
+             tag 'v1.0.0'
+         }
+//	    when {
+//                allOf {
+//                    branch "main"
+//                    buildingTag()
+//                }
+//            }
 //         when {
 //             tag comparator: 'EQUALS', pattern: 'v1.0.0'
 //         }
