@@ -23,7 +23,7 @@ pipeline {
     stage('Deploy') {
 	when {
                 expression {
-                   env.TAG_NAME.toString().equals('v1.0.0')
+                   env.GIT_TAG_NAME.toString().equals('v1.0.0')
                 }
         }
         steps {
