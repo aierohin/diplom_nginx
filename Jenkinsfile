@@ -1,9 +1,19 @@
 #!/usr/bin/env groovy
 
-@Library('shared-libraries')_
-
 pipeline {
   agent any
+	
+	options {
+		buildDiscarder(
+			logRotator(
+			numToKeepStr: '10',
+			artifactNumToKeepStr: '10'
+			)
+		)
+		ansiColor('xterm')
+		timestamps()
+	}
+	
 //   options {
 //   skipDefaultCheckout()
 // }
