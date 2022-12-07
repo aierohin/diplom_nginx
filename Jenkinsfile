@@ -24,11 +24,14 @@ pipeline {
 //         when {
 //             tag comparator: 'EQUALS', pattern: 'v1.0.0'
 //         }
-	    when {
-                expression {
-                   GIT_TAG_NAME.toString().equals('v1.0.0')
-                }
-        }
+	   when {
+  		environment name: 'GIT_TAG_NAME', value: 'v1.0.0'	
+	   }
+// 	   when {
+//                 expression {
+//                    GIT_TAG_NAME.toString().equals('v1.0.0')
+//                 }
+//         }
         steps {
             echo 'Deploying only because this commit is tagged...'
 	    sh 'kubectl apply -f nginx_pod.yaml '
