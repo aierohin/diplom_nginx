@@ -35,7 +35,7 @@ pipeline {
     }
     stage('Deploy') {
           when {
-             tag 'v1.0.0'
+             tag '*'
          }
 //	    when {
 //                allOf {
