@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 
+@Library('shared-libraries')_
+
 pipeline {
   agent any
 //   options {
