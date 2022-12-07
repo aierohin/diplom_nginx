@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Deploy') {
         when {
-            tag 'v1.0.0'
+            tag comparator: 'EQUALS', pattern: 'v1.0.0'
         }
 // 	when {
 //                 expression {
