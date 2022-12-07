@@ -10,7 +10,6 @@ pipeline {
 			artifactNumToKeepStr: '10'
 			)
 		)
-		ansiColor('xterm')
 		timestamps()
 	}
 	
