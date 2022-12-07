@@ -21,12 +21,18 @@ pipeline {
       }
     }
     stage('Deploy') {
+	    when {
+                allOf {
+                    branch main
+                    buildingTag()
+                }
+            }
 //         when {
 //             tag comparator: 'EQUALS', pattern: 'v1.0.0'
 //         }
-	   when {
-  		environment name: 'GIT_TAG_NAME', value: 'v1.0.0'	
-	   }
+// 	   when {
+//   		environment name: 'GIT_TAG_NAME', value: 'v1.0.0'	
+// 	   }
 // 	   when {
 //                 expression {
 //                    GIT_TAG_NAME.toString().equals('v1.0.0')
