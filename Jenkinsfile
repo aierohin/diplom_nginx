@@ -20,12 +20,12 @@ pipeline {
   stages {
     stage('Build') {
       steps{
-        def TAG_NAME = binding.variables.get("GIT_TAG_NAME")
-            if (TAG_NAME != null) {
-                sh "echo $TAG_NAME"
-            } else {
-                sh "echo Non-tag build"
-            }
+//         def TAG_NAME = binding.variables.get("GIT_TAG_NAME")
+//             if (TAG_NAME != null) {
+//                 sh "echo $TAG_NAME"
+//             } else {
+//                 sh "echo Non-tag build"
+//             }
         sh 'docker build -t aierohin/nginx:latest .'
       }
     }
@@ -35,15 +35,15 @@ pipeline {
       }
     }
     stage('Deploy') {
-          when {
-             tag '*'
-         }
-//	    when {
-//                allOf {
-//                    branch "main"
-//                    buildingTag()
-//                }
-//            }
+//           when {
+//              tag '*'
+//          }
+	    when {
+               allOf {
+                   branch "main"
+                   buildingTag()
+               }
+           }
 //         when {
 //             tag comparator: 'EQUALS', pattern: 'v1.0.0'
 //         }
