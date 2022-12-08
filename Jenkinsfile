@@ -37,9 +37,9 @@ pipeline {
     stage('Deploy') {
 	    when {
         	expression {
-            	return env.TAG_NAME != null;
-        	}
-    	}
+            		return env.TAG_NAME != null;
+        		}
+    		}
 // 	    when {
 //                 buildingTag()
 //             }
@@ -71,4 +71,4 @@ pipeline {
         }                    
     }
   }
-}
+//}
