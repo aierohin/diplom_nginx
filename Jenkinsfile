@@ -38,15 +38,15 @@ pipeline {
 //           when {
 //              tag '*'
 //          }
-	    when {
+//	    when {
 //                allOf {
 //                    branch "main"
-                   buildingTag()
+//                   buildingTag()
 //                }
-           }
-//         when {
-//             tag comparator: 'EQUALS', pattern: 'v1.0.0'
-//         }
+//           }
+        when {
+            tag comparator: 'EQUALS', pattern: '*'
+        }
 // 	   when {
 //   		environment name: 'GIT_TAG_NAME', value: 'v1.0.0'	
 // 	   }
