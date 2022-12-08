@@ -36,8 +36,13 @@ pipeline {
     }
     stage('Deploy') {
 	    when {
-                buildingTag()
-            }
+        	expression {
+            	return env.TAG_NAME != null;
+        	}
+    	}
+// 	    when {
+//                 buildingTag()
+//             }
 //           when {
 //              tag '*'
 //          }
