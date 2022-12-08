@@ -35,11 +35,11 @@ pipeline {
       }
     }
     stage('Deploy') {
-// 	    when {
-//         	expression {
-//             		return env.TAG_NAME == '*';
-//         		}
-//     		}
+	    when {
+        	expression {
+            		return env.TAG_NAME == '*';
+        		}
+    		}
 // 	    when {
 //                 buildingTag()
 //             }
