@@ -52,9 +52,10 @@ pipeline {
 // 		environment name: 'TAG_NAME', value: '*'
 // 	   }
 	   when {
-//                 expression {
-                   env.GIT_TAG_NAME.toString().equals('*')
-//                 }
+		   environment(name: "GIT_TAG_NAME", value: "*")
+// //                 expression {
+//                    env.GIT_TAG_NAME.toString().equals('*')
+// //                 }
         }
         steps {
             echo 'Deploying only because this commit is tagged...'
