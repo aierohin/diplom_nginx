@@ -35,6 +35,9 @@ pipeline {
       }
     }
     stage('Deploy') {
+	    when {
+                buildingTag()
+            }
 //           when {
 //              tag '*'
 //          }
@@ -51,8 +54,8 @@ pipeline {
 // //   		environment name: 'GIT_TAG_NAME', value: '*'
 // 		environment name: 'TAG_NAME', value: '*'
 // 	   }
-	   when {
-		   environment(name: "GIT_TAG_NAME", value: "*")
+// 	   when {
+// 		   environment(name: "GIT_TAG_NAME", value: "*")
 // //                 expression {
 //                    env.GIT_TAG_NAME.toString().equals('*')
 // //                 }
