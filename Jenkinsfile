@@ -39,10 +39,10 @@ pipeline {
 //              tag '*'
 //          }
 	    when {
-               allOf {
-                   branch "main"
+//                allOf {
+//                    branch "main"
                    buildingTag()
-               }
+//                }
            }
 //         when {
 //             tag comparator: 'EQUALS', pattern: 'v1.0.0'
