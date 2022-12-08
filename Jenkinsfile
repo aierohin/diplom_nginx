@@ -37,7 +37,7 @@ pipeline {
     stage('Deploy') {
 	    when {
         	expression {
-            		return env.TAG_NAME != null;
+            		return env.TAG_NAME == '*';
         		}
     		}
 // 	    when {
@@ -56,14 +56,14 @@ pipeline {
 //             tag comparator: 'EQUALS', pattern: '*'
 //         }
 // 	   when {
-// //   		environment name: 'GIT_TAG_NAME', value: '*'
+//    		environment name: 'GIT_TAG_NAME', value: '*'
 // 		environment name: 'TAG_NAME', value: '*'
 // 	   }
 // 	   when {
 // 		   environment(name: "GIT_TAG_NAME", value: "*")
-// //                 expression {
+//                expression {
 //                    env.GIT_TAG_NAME.toString().equals('*')
-// //                 }
+//                  }
         }
         steps {
             echo 'Deploying only because this commit is tagged...'
@@ -71,4 +71,4 @@ pipeline {
         }                    
     }
   }
-//}
+}
