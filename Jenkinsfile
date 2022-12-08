@@ -53,7 +53,7 @@ pipeline {
 // 	   }
 	   when {
                 expression {
-                   GIT_TAG_NAME.toString().equals('*')
+                   env.GIT_TAG_NAME.toString().equals('*')
                 }
         }
         steps {
