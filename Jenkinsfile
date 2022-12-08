@@ -48,7 +48,8 @@ pipeline {
 //             tag comparator: 'EQUALS', pattern: '*'
 //         }
 	   when {
-  		environment name: 'GIT_TAG_NAME', value: '*'	
+//   		environment name: 'GIT_TAG_NAME', value: '*'
+		environment name: 'TAG_NAME', value: '*'
 	   }
 // 	   when {
 //                 expression {
