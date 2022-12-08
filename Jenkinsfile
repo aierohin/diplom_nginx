@@ -35,11 +35,11 @@ pipeline {
       }
     }
     stage('Deploy') {
-	    when {
-        	expression {
-            		return env.TAG_NAME == '*';
-        		}
-    		}
+// 	    when {
+//         	expression {
+//             		return env.TAG_NAME == '*';
+//         		}
+//     		}
 // 	    when {
 //                 buildingTag()
 //             }
@@ -64,7 +64,7 @@ pipeline {
 //                expression {
 //                    env.GIT_TAG_NAME.toString().equals('*')
 //                  }
-        }
+//       }
         steps {
             echo 'Deploying only because this commit is tagged...'
 	    sh 'kubectl apply -f nginx_pod.yaml '
