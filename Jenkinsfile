@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-import com..jenkins.pipeline.*
+@Library('devops') _
 
 pipeline {
   agent any
