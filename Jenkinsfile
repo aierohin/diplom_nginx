@@ -79,7 +79,7 @@ pipeline {
 //       }
         steps {
 	    sh ' COMMIT_ID=$(git rev-list --tags --date-order | head -1) '
-	    sh 'TAG=$(git show-ref --tags | grep $COMMIT_ID )'
+	    sh 'TAG=$(git describe --tags $COMMIT_ID )'
             echo 'Deploying only because this commit is tagged...'
 // 	    sh ' ${param.TAG}'
 	    sh 'kubectl apply -f nginx_pod.yaml '
