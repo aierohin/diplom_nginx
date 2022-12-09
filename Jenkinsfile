@@ -40,12 +40,12 @@ pipeline {
 //             		return env.GIT_TAG_NAME == '*';
 //         		}
 //     		}
-	    when {
-                buildingTag()
-            }
-//           when {
-//              tag '*'
-//          }
+// 	    when {
+//                 buildingTag()
+//             }
+          when {
+             tag '*'
+         }
 //	    when {
 //                allOf {
 //                    branch "main"
