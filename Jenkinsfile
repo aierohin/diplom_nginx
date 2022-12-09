@@ -43,11 +43,12 @@ pipeline {
 // 	    when {
 //                 buildingTag()
 //             }
-     	    when {
-            allOf {
-                tag 'v*'
-            }
-        }
+	    when { tag pattern: "\\d+", comparator: "REGEXP"}
+//      	    when {
+//             allOf {
+//                 tag 'v*'
+//             }
+//         }
 // 	    when {
 //              tag 'v*'
 //          }
