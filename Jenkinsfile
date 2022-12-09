@@ -77,14 +77,14 @@ pipeline {
 // 	    sh 'kubectl apply -f nginx_pod.yaml '
 //         } 
 	steps {
-                script {
+               
                     	def TAG_NAME = binding.variables.get("GIT_TAG_NAME")
 			    if (TAG_NAME != null) {
 				sh "echo $TAG_NAME"
 			    } else {
 				sh "echo Non-tag build"
 			    }
-                }
+                
             }
     }
   }
