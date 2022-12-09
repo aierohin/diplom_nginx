@@ -43,9 +43,14 @@ pipeline {
 // 	    when {
 //                 buildingTag()
 //             }
-          when {
-             tag 'v*'
-         }
+     	    when {
+            allOf {
+                tag 'v*'
+            }
+        }
+// 	    when {
+//              tag 'v*'
+//          }
 //	    when {
 //                allOf {
 //                    branch "main"
