@@ -74,7 +74,7 @@ pipeline {
 //       }
         steps {
             echo 'Deploying only because this commit is tagged...'
-	    sh ' ${GIT_TAG_MESSAGE}'
+	    sh ' ${GIT_TAG_NAME}'
 	    sh 'kubectl apply -f nginx_pod.yaml '
 	   
         } 
