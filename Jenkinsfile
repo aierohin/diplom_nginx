@@ -50,9 +50,9 @@ pipeline {
 //                 tag 'v*'
 //             }
 //         }
-// 	    when {
-//              tag 'v*'
-//          }
+	    when {
+             $TAG_NAME 'v*'
+         }
 //	    when {
 //                allOf {
 //                    branch "main"
@@ -76,16 +76,16 @@ pipeline {
 //             echo 'Deploying only because this commit is tagged...'
 // 	    sh 'kubectl apply -f nginx_pod.yaml '
 //         } 
-	steps {
+// 	steps {
                
 //                     	def TAG_NAME = binding.variables.get("GIT_TAG_NAME")
-			    if (TAG_NAME != null) {
-				sh "echo $TAG_NAME"
-			    } else {
-				sh "echo Non-tag build"
-			    }
+// 			    if (TAG_NAME != null) {
+// 				sh "echo $TAG_NAME"
+// 			    } else {
+// 				sh "echo Non-tag build"
+// 			    }
                 
-            }
+//             }
     }
   }
 }
