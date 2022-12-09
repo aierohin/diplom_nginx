@@ -40,10 +40,10 @@ pipeline {
 //             		return env.GIT_TAG_NAME == '*';
 //         		}
 //     		}
-// 	    when {
-//                 buildingTag()
-//             }
-	    when { buildingTag() pattern: "\\d+", comparator: "REGEXP"}
+	    when {
+                buildingTag()
+            }
+// 	    when { buildingTag() pattern: "\\d+", comparator: "REGEXP"}
 //      	    when {
 //             allOf {
 //                 tag 'v*'
