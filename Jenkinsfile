@@ -35,14 +35,14 @@ pipeline {
       }
     }
     stage('Deploy') {
-	    when {
-        	expression {
-            		return env.GIT_TAG_NAME;
-        		}
-    		}
 // 	    when {
-//                 buildingTag()
-//             }
+//         	expression {
+//             		return env.GIT_TAG_NAME == '*';
+//         		}
+//     		}
+	    when {
+                buildingTag()
+            }
 //           when {
 //              tag '*'
 //          }
