@@ -44,7 +44,7 @@ pipeline {
 //                 buildingTag()
 //             }
           when {
-             tag '*'
+             tag 'v*'
          }
 //	    when {
 //                allOf {
