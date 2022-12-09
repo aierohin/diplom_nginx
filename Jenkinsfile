@@ -78,7 +78,7 @@ pipeline {
 //                  }
 //       }
         steps {
-	    sh ' COMMIT_ID=$(git rev-list --tags --date-order) '
+	    sh ' COMMIT_ID=$(git rev-list --no-walk) '
 	    sh 'TAG=$(git describe --tags $COMMIT_ID )'
 	    
             echo 'Deploying only because this commit is tagged...'
