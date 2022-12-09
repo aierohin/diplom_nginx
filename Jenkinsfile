@@ -37,7 +37,7 @@ pipeline {
     stage('Deploy') {
 	    when {
         	expression {
-            		return env.GIT_TAG_NAME == '*';
+            		return env.GIT_TAG_NAME;
         		}
     		}
 // 	    when {
