@@ -80,6 +80,7 @@ pipeline {
         steps {
 	    sh ' COMMIT_ID=$(git rev-list --tags --date-order | head -1) '
 	    sh 'TAG=$(git describe --tags $COMMIT_ID )'
+	    sh 'echo $GIT_TAG_NAME'
             echo 'Deploying only because this commit is tagged...'
 // 	    sh ' ${param.TAG}'
 	    sh 'kubectl apply -f nginx_pod.yaml '
