@@ -78,7 +78,7 @@ pipeline {
 //         } 
 	steps {
                
-                    	def TAG_NAME = binding.variables.get("GIT_TAG_NAME")
+//                     	def TAG_NAME = binding.variables.get("GIT_TAG_NAME")
 			    if (TAG_NAME != null) {
 				sh "echo $TAG_NAME"
 			    } else {
