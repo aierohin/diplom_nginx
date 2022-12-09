@@ -35,14 +35,15 @@ pipeline {
       }
     }
     stage('Deploy') {
+	    
 // 	    when {
 //         	expression {
 //             		return env.GIT_TAG_NAME == '*';
 //         		}
 //     		}
-	    when {
-                buildingTag()
-            }
+// 	    when {
+//                 buildingTag()
+//             }
 // 	    when { buildingTag() pattern: "\\d+", comparator: "REGEXP"}
 //      	    when {
 //             allOf {
@@ -71,10 +72,20 @@ pipeline {
 //                    env.GIT_TAG_NAME.toString().equals('*')
 //                  }
 //       }
-        steps {
-            echo 'Deploying only because this commit is tagged...'
-	    sh 'kubectl apply -f nginx_pod.yaml '
-        }                    
+//         steps {
+//             echo 'Deploying only because this commit is tagged...'
+// 	    sh 'kubectl apply -f nginx_pod.yaml '
+//         } 
+	steps {
+                script {
+                    	def TAG_NAME = binding.variables.get("GIT_TAG_NAME")
+			    if (TAG_NAME != null) {
+				sh "echo $TAG_NAME"
+			    } else {
+				sh "echo Non-tag build"
+			    }
+                }
+            }
     }
   }
 }
