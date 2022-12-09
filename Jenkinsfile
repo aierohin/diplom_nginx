@@ -3,6 +3,11 @@
 
 pipeline {
   agent any
+	parameters {
+        gitParameter name: 'TAG',
+                     type: 'PT_TAG',
+                     defaultValue: 'master'
+    }
 	
 	options {
 		buildDiscarder(
@@ -74,7 +79,7 @@ pipeline {
 //       }
         steps {
             echo 'Deploying only because this commit is tagged...'
-	    sh ' ${GIT_TAG_NAME}'
+	    sh ' ${param.TAG}'
 	    sh 'kubectl apply -f nginx_pod.yaml '
 	   
         } 
