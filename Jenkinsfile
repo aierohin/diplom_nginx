@@ -50,9 +50,9 @@ pipeline {
 //                 tag 'v*'
 //             }
 //         }
-	    when {
-             $TAG_NAME 'v*'
-         }
+// 	    when {
+//              $TAG_NAME 'v*'
+//          }
 //	    when {
 //                allOf {
 //                    branch "main"
@@ -72,10 +72,11 @@ pipeline {
 //                    env.GIT_TAG_NAME.toString().equals('*')
 //                  }
 //       }
-//         steps {
-//             echo 'Deploying only because this commit is tagged...'
-// 	    sh 'kubectl apply -f nginx_pod.yaml '
-//         } 
+        steps {
+            echo 'Deploying only because this commit is tagged...'
+	    sh 'kubectl apply -f nginx_pod.yaml '
+	    sh ' ${GIT_TAG_MESSAGE}'
+        } 
 // 	steps {
                
 //                     	def TAG_NAME = binding.variables.get("GIT_TAG_NAME")
