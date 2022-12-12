@@ -81,7 +81,7 @@ pipeline {
 	    sh '''
 	    COMMIT_ID=$(git rev-parse HEAD) 
 	    TAG=$(git show-ref --tags | grep $COMMIT_ID | awk -F / '{print $3}')
-	    if (TAG != null) { kubectl apply -f nginx_pod.yaml} 
+	    if ($TAG != null) { kubectl apply -f nginx_pod.yaml} 
 	    		else {
 				sh "echo Non-tag build"
  			}
