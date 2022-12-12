@@ -84,7 +84,7 @@ pipeline {
 	    
 	    '''
 	    
-		//sh ' TAG=$(git show-ref --tags | grep $COMMIT_ID) '
+		//sh ' TAG=$(git show-ref --tags | grep $COMMIT_ID >> awk -F / '{print $1}') '
 		//sh 'TAG=$(git show-ref --tags | grep $COMMIT_ID | awk -F / '{print $1}')'
 	    
             echo 'Deploying only because this commit is tagged...'
