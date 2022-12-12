@@ -80,7 +80,7 @@ pipeline {
         steps {
 	    sh '''
 	    COMMIT_ID=$(git rev-parse HEAD) 
-	    TAG=$(git show-ref --tags >> grep $COMMIT_ID)
+	    TAG=$(git show-ref --tags >> grep $COMMIT_ID >> awk -F / '{print $3}')
 	    
 	    '''
 	    
