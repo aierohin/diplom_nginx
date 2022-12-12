@@ -81,13 +81,12 @@ pipeline {
 	    sh '''
 	    COMMIT_ID=$(git rev-parse HEAD) 
 	    TAG=$(git show-ref --tags | grep $COMMIT_ID | awk -F / '{print $3}')
-	    if (TAG != null) {
- 				sh 'kubectl apply -f nginx_pod.yaml '
- 			    } else {
+	    if (TAG != null) { kubectl apply -f nginx_pod.yaml} 
+	    		else {
 				sh "echo Non-tag build"
- 			    }
+ 			}
 	    '''
-	    
+	 } 
 		//sh ' TAG=$(git show-ref --tags | grep $COMMIT_ID >> awk -F / '{print $1}') '
 		//sh 'TAG=$(git show-ref --tags | grep $COMMIT_ID | awk -F / '{print $1}')'
 	    
@@ -95,7 +94,7 @@ pipeline {
 // 	    sh ' ${param.TAG}'
 	    
 	   
-        } 
+       
 // 	steps {
                
 //                     	def TAG_NAME = binding.variables.get("GIT_TAG_NAME")
