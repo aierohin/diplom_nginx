@@ -79,6 +79,7 @@ pipeline {
 //       }
         steps {
 	    sh '''
+	    #!/bin/bash
 	    COMMIT_ID=$(git rev-parse HEAD) 
 	    TAG=$(git show-ref --tags | grep $COMMIT_ID | awk -F / '{print $3}')
 	    if [ -z "$TAG" ] 
