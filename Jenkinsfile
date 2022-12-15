@@ -16,7 +16,7 @@ pipeline {
     stage('Build') {
       steps{
 	echo "${currentBuild.number}"
-        sh 'docker build -t aierohin/nginx:${currentBuild.number} .'
+        sh 'docker build -t aierohin/nginx:${env.currentBuild.number} .'
 	
       }
     }
