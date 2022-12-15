@@ -15,8 +15,9 @@ pipeline {
   stages {
     stage('Build') {
       steps{
+	echo "${currentBuild.number}"
         sh 'docker build -t aierohin/nginx:${currentBuild.number} .'
-	      sh 'echo ${currentBuild.number}'
+	
       }
     }
     stage('Push') {
