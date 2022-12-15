@@ -34,7 +34,7 @@ pipeline {
 	    if [ -z "$TAG" ] 
 	    then 
 	    echo Non-tag build
-	    sh 'docker push aierohin/nginx:$BUILD_NUMBER'
+	    docker push aierohin/nginx:$BUILD_NUMBER
  	    else 
 	    echo $TAG
 	    echo 'Deploying only because this commit is tagged...'
