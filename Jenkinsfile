@@ -25,16 +25,16 @@ pipeline {
         
 //       }
 //     }
-    stage('Deploy') {
+    stage('Push_Deploy') {
         steps {
 	    sh '''
 	    #!/bin/bash
+	    docker push aierohin/nginx:$BUILD_NUMBER
 	    COMMIT_ID=$(git rev-parse HEAD) 
 	    TAG=$(git show-ref --tags | grep $COMMIT_ID | awk -F / '{print $3}')
 	    if [ -z "$TAG" ] 
 	    then 
 	    echo Non-tag build
-	    docker push aierohin/nginx:$BUILD_NUMBER
 	    else 
 	    echo $TAG
 	    echo 'Deploying only because this commit is tagged...'
