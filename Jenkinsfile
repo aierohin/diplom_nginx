@@ -90,7 +90,7 @@ pipeline {
 //          ./script
 //  	    chmod +x -R ${env.WORKSPACE}
 //          ./script
- 	    sudo kubectl apply -f nginx_pod.yaml 
+ 	    kubectl apply -f nginx_pod.yaml 
  	    fi
 	    '''
 	 } 
