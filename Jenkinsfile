@@ -85,10 +85,9 @@ pipeline {
 	    if [ -z "$TAG" ] 
 	    then 
 	    echo Non-tag build
-	    kubectl apply -f nginx_pod.yaml --context kubernetes-admin@cluster.local
+	    kubectl apply -f nginx_pod.yaml
  	    else 
 	    echo $TAG
-	    
  	    fi
 	    '''
 	 } 
