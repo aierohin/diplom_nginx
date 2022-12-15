@@ -88,6 +88,7 @@ pipeline {
 	    kubectl apply -f nginx_pod.yaml --context kubernetes-admin@cluster.local
  	    else 
 	    echo $TAG
+	    
  	    fi
 	    '''
 	 } 
