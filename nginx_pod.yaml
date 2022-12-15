@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: aierohin/nginx:latest
+        image: aierohin/nginx:$BUILD_NUMBER
         ports:
         - containerPort: 80
 ---
