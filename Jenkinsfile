@@ -87,10 +87,10 @@ pipeline {
 	    echo Non-tag build
 	    else 
 	    echo $TAG
-//            ./script
- 	    chmod +x -R ${env.WORKSPACE}
-            ./script
-// 	    sudo kubectl apply -f nginx_pod.yaml 
+//          ./script
+//  	    chmod +x -R ${env.WORKSPACE}
+//          ./script
+ 	    sudo kubectl apply -f nginx_pod.yaml 
  	    fi
 	    '''
 	 } 
