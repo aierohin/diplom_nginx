@@ -15,7 +15,7 @@ pipeline {
   stages {
     stage('Build') {
       steps{
-        sh 'docker build -t aierohin/nginx:latest .'
+        sh 'docker build -t aierohin/nginx:currentBuild.number .'
       }
     }
     stage('Push') {
