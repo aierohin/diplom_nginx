@@ -35,10 +35,11 @@ pipeline {
 	    then 
 	    echo Non-tag build
 	    docker push aierohin/nginx:$BUILD_NUMBER
+	    sudo kubectl apply -f nginx_pod.yaml --kubeconfig /home/erohin/.kube/config set image deployment/nginx-deployment nginx=aierohin/nginx:$BUILD_NUMBER
 	    else 
 	    echo $TAG
 	    echo 'Deploying only because this commit is tagged...'
-	    sudo kubectl apply -f nginx_pod.yaml --kubeconfig /home/erohin/.kube/config
+	   
  	    fi
 	    '''
 	 }
