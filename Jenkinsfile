@@ -85,9 +85,9 @@ pipeline {
 	    if [ -z "$TAG" ] 
 	    then 
 	    echo Non-tag build
-	    sudo kubectl apply -f nginx_pod.yaml --kubeconfig /home/erohin/.kube/config
  	    else 
 	    echo $TAG
+	    sudo kubectl apply -f nginx_pod.yaml --kubeconfig /home/erohin/.kube/config
  	    fi
 	    '''
 	 } 
